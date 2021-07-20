@@ -1,3 +1,35 @@
+var pokemonDB = [
+  {
+    name: "charmander",
+    type: "fire",
+    hp: '39',
+    attack: 52,
+    stamina: 43,
+    level: 1,
+    img: 'http://www.smogon.com/dex/media/sprites/xy/charmander.gif',
+
+  },
+  {
+    name: "bulbasaur",
+    type: "grass",
+    hp: '45',
+    attack: 49,
+    stamina: 49,
+    level: 1,
+    img: 'http://www.smogon.com/dex/media/sprites/xy/bulbasaur.gif',
+  },
+  {
+    name: "squirtle",
+    type: "water",
+    hp: '44',
+    attack: 48,
+    stamina: 65,
+    level: 1,
+    img: 'http://www.smogon.com/dex/media/sprites/xy/squirtle.gif',
+
+  },
+];
+
 var gameState = {
   userPokemon: "",
   rivalPokemon: "",
@@ -9,8 +41,7 @@ var pokemonsEL = document
 
 console.log(pokemonsEL);
 
-var battleScreenEl = document
-  .getElementById("battle-screen")
+var battleScreenEl = document.getElementById("battle-screen");
 
 var i = 0;
 while (i < pokemonsEL.length) {
@@ -19,7 +50,7 @@ while (i < pokemonsEL.length) {
     gameState.userPokemon = pokemonName;
 
     cpuPick();
-    battleScreenEl.classList.toggle('active')
+    battleScreenEl.classList.toggle("active");
     console.log(gameState);
   };
   i++;
