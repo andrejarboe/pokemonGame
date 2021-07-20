@@ -1,66 +1,45 @@
-var gameState = {
-  userPokemon: "",
-  rivalPokemon: "",
-};
+webpackJsonp([0],{
 
-var pokemonsEL = document
-  .querySelector(".select-screen")
-  .querySelectorAll(".character");
+/***/ 84:
+/***/ (function(module, exports, __webpack_require__) {
 
-console.log(pokemonsEL);
+"use strict";
 
-var i = 0;
-while (i < pokemonsEL.length) {
-  pokemonsEL[i].onclick = function () {
-    var pokemonName = this.dataset.userPokemon;
-    gameState.userPokemon = pokemonName;
-    console.log(gameState);
-  };
-  i++;
-}
 
-function
+// pokemon
+// create data for 3 different pokemons, with their names, type, weaknesses, health, and attack moves(name, attack stat, maximum)
+var pokemons = [{
+  name: 'charmander',
+  type: 'fire',
+  attack: 52,
+  stamina: 39,
+  level: 1
+}, {
+  name: 'charmander',
+  type: 'fire',
+  attack: 52,
+  stamina: 39,
+  level: 1
+}];
 
-// webpackJsonp([0],{
+var attack = 20;
+var level = 10;
+var stack = 1.3;
+var stamina = 39;
 
-// /***/ 235:
-// /***/ (function(module, exports, __webpack_require__) {
+// create a formula for attacks
+console.log(attack * level * stack / 7);
 
-// "use strict";
+// create a formula for health
+//HP = 0.20 x Sqrt(Pokemon_level) x (HP_base_stat)
+console.log(0.20 * Math.sqrt(level) * stamina * 15);
 
-// // pokemon
-// // create data for 3 different pokemons, with their names, type, weaknesses, health, and attack moves(name, attack stat, maximum)
-// var pokemons = [{
-//   name: 'charmander',
-//   type: 'fire',
-//   attack: 52,
-//   stamina: 39,
-//   level: 1
-// }, {
-//   name: 'charmander',
-//   type: 'fire',
-//   attack: 52,
-//   stamina: 39,
-//   level: 1
-// }];
+// let user choose 1 and then assign a random pokemon to battle thats not the users pokemon
+// p1 vs p2
 
-// var attack = 20;
-// var level = 10;
-// var stack = 1.3;
-// var stamina = 39;
 
-// // create a formula for attacks
-// console.log(attack * level * stack / 7);
+// when one user loses all his health declare a winner
 
-// // create a formula for health
-// //HP = 0.20 x Sqrt(Pokemon_level) x (HP_base_stat)
-// console.log(0.20 * Math.sqrt(level) * stamina * 15);
+/***/ })
 
-// // let user choose 1 and then assign a random pokemon to battle thats not the users pokemon
-// // p1 vs p2
-
-// // when one user loses all his health declare a winner
-
-// /***/ })
-
-// },[235]);
+},[84]);
