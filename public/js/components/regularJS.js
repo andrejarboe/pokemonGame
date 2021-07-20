@@ -1,45 +1,78 @@
-webpackJsonp([0],{
+var gameState = {
+  userPokemon: "",
+  rivalPokemon: "",
+};
 
-/***/ 84:
-/***/ (function(module, exports, __webpack_require__) {
+var pokemonsEL = document
+  .querySelector(".select-screen")
+  .querySelectorAll(".character");
 
-"use strict";
+console.log(pokemonsEL);
 
+var battleScreenEl = document
+  .getElementById("battle-screen")
 
-// pokemon
-// create data for 3 different pokemons, with their names, type, weaknesses, health, and attack moves(name, attack stat, maximum)
-var pokemons = [{
-  name: 'charmander',
-  type: 'fire',
-  attack: 52,
-  stamina: 39,
-  level: 1
-}, {
-  name: 'charmander',
-  type: 'fire',
-  attack: 52,
-  stamina: 39,
-  level: 1
-}];
+var i = 0;
+while (i < pokemonsEL.length) {
+  pokemonsEL[i].onclick = function () {
+    var pokemonName = this.dataset.pokemon;
+    gameState.userPokemon = pokemonName;
 
-var attack = 20;
-var level = 10;
-var stack = 1.3;
-var stamina = 39;
+    cpuPick();
+    battleScreenEl.classList.toggle('active')
+    console.log(gameState);
+  };
+  i++;
+}
 
-// create a formula for attacks
-console.log(attack * level * stack / 7);
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
 
-// create a formula for health
-//HP = 0.20 x Sqrt(Pokemon_level) x (HP_base_stat)
-console.log(0.20 * Math.sqrt(level) * stamina * 15);
+function cpuPick() {
+  gameState.rivalPokemon = pokemonsEL[randomNumber(0, 3)].dataset.pokemon;
+}
 
-// let user choose 1 and then assign a random pokemon to battle thats not the users pokemon
-// p1 vs p2
+// webpackJsonp([0],{
 
+// /***/ 235:
+// /***/ (function(module, exports, __webpack_require__) {
 
-// when one user loses all his health declare a winner
+// "use strict";
 
-/***/ })
+// // pokemon
+// // create data for 3 different pokemons, with their names, type, weaknesses, health, and attack moves(name, attack stat, maximum)
+// var pokemons = [{
+//   name: 'charmander',
+//   type: 'fire',
+//   attack: 52,
+//   stamina: 39,
+//   level: 1
+// }, {
+//   name: 'charmander',
+//   type: 'fire',
+//   attack: 52,
+//   stamina: 39,
+//   level: 1
+// }];
 
-},[84]);
+// var attack = 20;
+// var level = 10;
+// var stack = 1.3;
+// var stamina = 39;
+
+// // create a formula for attacks
+// console.log(attack * level * stack / 7);
+
+// // create a formula for health
+// //HP = 0.20 x Sqrt(Pokemon_level) x (HP_base_stat)
+// console.log(0.20 * Math.sqrt(level) * stamina * 15);
+
+// // let user choose 1 and then assign a random pokemon to battle thats not the users pokemon
+// // p1 vs p2
+
+// // when one user loses all his health declare a winner
+
+// /***/ })
+
+// },[235]);
