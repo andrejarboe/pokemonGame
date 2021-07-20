@@ -47,11 +47,34 @@ var i = 0;
 while (i < pokemonsEL.length) {
   pokemonsEL[i].onclick = function () {
     var pokemonName = this.dataset.pokemon;
+    var player1IMg = document
+      .querySelector(".player1")
+      .getElementsByTagName("img");
+    var player2IMg = document
+      .querySelector(".player2")
+      .getElementsByTagName("img");
+
     gameState.userPokemon = pokemonName;
 
     cpuPick();
     battleScreenEl.classList.toggle("active");
+
+    var currentPokemon = pokemonDB.filter(function (pokemon) {
+      return pokemon.name == gameState.userPokemon;
+    });
+    
+    var currentRivalPokemon = pokemonDB.filter(function (pokemon) {
+      return pokemon.name == gameState.rivalPokemon;
+    });
+
+    player1IMg[0].src = currentPokemon[0].img
+    player2IMg[0].src = currentRivalPokemon[0].img
+
+    console.log("***************");
+    console.log(currentPokemon);
+
     console.log(gameState);
+    console.log(player1IMg[0]);
   };
   i++;
 }
